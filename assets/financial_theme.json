@@ -1,0 +1,138 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.149.json",
+  "name": "Financial Analytics",
+
+  "dataColors": [
+    "#1B4F72",
+    "#2874A6",
+    "#3498DB",
+    "#5DADE2",
+    "#85C1E9",
+    "#AED6F1",
+    "#D4E6F1",
+    "#E74C3C",
+    "#F39C12",
+    "#F1C40F",
+    "#27AE60"
+  ],
+
+  "background": "#FFFFFF",
+  "foreground": "#1A1A2E",
+  "tableAccent": "#1B4F72",
+
+  "good": "#27AE60",
+  "neutral": "#F39C12",
+  "bad": "#E74C3C",
+
+  "maximum": "#1B4F72",
+  "center": "#5DADE2",
+  "minimum": "#D4E6F1",
+  "null": "#E8E8E8",
+
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 18,
+      "color": "#1A1A2E"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 14,
+      "color": "#1A1A2E"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#333333"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 24,
+      "color": "#1B4F72"
+    }
+  },
+
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E0E0E0"
+              }
+            },
+            "radius": 6
+          }
+        ],
+        "title": [
+          {
+            "fontSize": 13,
+            "fontColor": {
+              "solid": {
+                "color": "#1A1A2E"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#1B4F72"
+              }
+            },
+            "fontSize": 28
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#666666"
+              }
+            },
+            "fontSize": 11
+          }
+        ]
+      }
+    },
+
+    "kpi": {
+      "*": {
+        "dataLabels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#1B4F72"
+              }
+            },
+            "fontSize": 24
+          }
+        ],
+        "goal": [
+          {
+            "show": true
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+
+======================================================================
+  1. DESCRIPTIVE STATISTICS
+======================================================================
+
+-- Transaction Amounts --
+count    52041.00
+mean        71.28
+std        129.89
+min          0.14
+25%         14.77
+50%         33.60
+75%         77.79
+max       4954.50
+
+-- Annual Income --
+count      1500.00
+mean      69562.89
+std       40444.25
+min       20000.00
+25%       40688.34
+50%       59678.33
+75%       87234.54
+max      325225.22
+
+-- Loan Amounts --
+count      2000.00
+mean      49997.06
+std       46350.00
+min        2826.23
+25%       21452.42
+50%       36791.69
+75%       62004.99
+max      572858.19
+
+-- Revenue --
+count        24.00
+mean     516364.78
+std       84755.54
+min      397547.54
+25%      450516.33
+50%      503997.52
+75%      549985.83
+max      680326.52
+
+======================================================================
+  2. CORRELATION ANALYSIS
+======================================================================
+
+Pearson correlation matrix:
+                      credit_score  debt_to_income_ratio  annual_income    age  risk_score  total_txn_amount  total_loan_amount
+credit_score                 1.000                -0.014         -0.033 -0.039      -0.701             0.004              0.015
+debt_to_income_ratio        -0.014                 1.000         -0.027  0.036       0.468            -0.001              0.010
+annual_income               -0.033                -0.027          1.000 -0.016       0.008             0.759              0.028
+age                         -0.039                 0.036         -0.016  1.000       0.041            -0.012             -0.012
+risk_score                  -0.701                 0.468          0.008  0.041       1.000             0.008              0.134
+total_txn_amount             0.004                -0.001          0.759 -0.012       0.008             1.000              0.033
+total_loan_amount            0.015                 0.010          0.028 -0.012       0.134             0.033              1.000
+
+======================================================================
+  3. HYPOTHESIS TESTING
+======================================================================
+
+Two-sample t-test: Credit score (Low vs High/Critical risk)
+  t-statistic = 8.2534, p-value = 3.85e-04
+  Mean Low risk = 709.6 | Mean High risk = 530.5
+
+Chi-square test: Employment status vs Risk band
+  chi2 = 71.20, dof = 6, p-value = 2.32e-13
+
+======================================================================
+  4. TREND ANALYSIS
+======================================================================
+
+Monthly transaction volume (first 6 / last 6):
+year_month  total_amount  txn_count
+   2023-01     161581.39       2238
+   2023-02     153586.55       2038
+   2023-03     145661.80       2155
+   2023-04     143696.60       2128
+   2023-05     164020.96       2309
+   2023-06     143015.39       2109
+  ...
+year_month  total_amount  txn_count
+   2024-07     158333.14       2231
+   2024-08     148695.59       2128
+   2024-09     162392.44       2118
+   2024-10     152172.76       2225
+   2024-11     151324.27       2104
+   2024-12     155305.76       2235
+
+Revenue linear trend:
+  Slope = 4722.78/month, R² = 0.155, p-value = 5.68e-02
+
+======================================================================
+  5. ANOMALY DETECTION (Z-SCORE > 3)
+======================================================================
+
+Number of anomalous transactions (|z| > 3): 824
+Mean anomaly amount: 795.92
+Max anomaly amount: 4954.50
+
+Top 5 anomalous transactions:
+transaction_id customer_id transaction_date  amount transaction_type
+    TXN-024244  CUST-00697       2023-11-21 4954.50          Deposit
+    TXN-023468  CUST-00676       2023-09-20 4414.04          Deposit
+    TXN-011049  CUST-00326       2023-01-11 3513.32          Deposit
+    TXN-012670  CUST-00372       2023-11-29 3486.21          Deposit
+    TXN-010380  CUST-00306       2023-01-22 3003.21          Payment
+
+======================================================================
+  6. LOAN DEFAULT ANALYSIS
+======================================================================
+
+Overall default rate: 9.45%  (189/2000)
+
+Default rate by loan type:
+           total  defaulted  default_rate
+loan_type                                
+Mortgage     380         45         11.84
+Business     406         45         11.08
+Personal     385         34          8.83
+Student      450         38          8.44
+Auto         379         27          7.12
